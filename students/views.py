@@ -1,10 +1,22 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
+from django.core import serializers
+
+JSONSerializer = serializers.get_serializer("json")
+
+json_serializer = JSONSerializer()
+
+
+
 
 # Create your views here.
 
 @login_required
 def index(request):
 
-    return render(request, "index.html")
+
+    student_json = json_serializer.serialize(user.student)
+
+
+    return render(request, student_json)
