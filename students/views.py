@@ -16,7 +16,7 @@ json_serializer = JSONSerializer()
 def index(request):
 
 
-    student_json = json_serializer.serialize(user.student)
+    student_json = json_serializer.serialize(request.user.student)
 
 
     return render(request, student_json)
